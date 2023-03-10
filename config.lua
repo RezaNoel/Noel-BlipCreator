@@ -1,0 +1,12 @@
+config={
+    blip={
+        coords={x=-613.65,y=-238.5,z=38.06},
+        radiusBlip=70.0,
+        blipName="salam",
+        blipCol=5
+    },
+    marker={
+        coords={x=-622.21,y=-230.91,z=38.06},
+        type=42
+    }
+}
