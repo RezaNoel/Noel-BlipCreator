@@ -1,5 +1,6 @@
 candraw=true
 Keys = {["E"] = 38}
+
 function creatblip()
   CreateThread(function()
 	  Wait(1)
@@ -55,22 +56,48 @@ function creatmarker()
 	
 end
 
-RegisterCommand("ccap",function (source,args)  
-  capname=args[1] 
-end , false)
+RegisterCommand("ccap",function (source,args)  capname=args[1] end , false)
+
+
 CreateThread(function ()
-  while true do
-    Wait(0)
+  -- while true do
+  --   Wait(0)
     if capname then
+      loc1=nil
+      loc2=nil
+      loc3=nil
     RegisterCommand("capdata",function (source,args)  
-      caploc=args[1] 
-      if caploc then
-      print(caploc)
-      else print("err")
-      end
+
+        if args[1]=="loc1" and loc1 == nil then
+        local pedCoords = GetEntityCoords(PlayerPedId())
+        loc1=pedCoords
+        print(loc1)
+        elseif args[1]=="loc2" and loc2==nil then
+          local pedCoords = GetEntityCoords(PlayerPedId())
+          loc2=pedCoords
+          print(loc2)
+
+        elseif args[1]=="loc3" and loc3==nil then
+          local pedCoords = GetEntityCoords(PlayerPedId())
+          loc3=pedCoords
+          print(loc3)
+        elseif args[1]=="time" then
+          if args[2]==nil then
+            print("Enter a Time")
+          elseif args[2]<0 then 
+            print("Enter a number")
+          elseif args[2] >0 then
+            captime=args[1]
+            print(captime)
+          else 
+            print("enter valid number")
+          end
+
+        end
+
     end , false)
   
   end
-  end
+  -- end
 end)
 
