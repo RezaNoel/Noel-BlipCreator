@@ -7,8 +7,5 @@ version '1.0'
 
 resource_type 'gametype' { name = 'Noel Awesome Sources!' }
 
-client_scripts {
-    "main.lua",
-    "config.lua"
-}
+client_script "main.lua"
 
